@@ -1,0 +1,76 @@
+{
+  "name": "universal-tools",
+  "version": "0.1.0",
+  "private": true,
+  "main": "public/electron.js",
+  "homepage": "./",
+  "dependencies": {
+    "@babel/runtime": "^7.6.0",
+    "@types/node": "^12.12.31",
+    "@types/react": "^16.9.26",
+    "@types/react-dom": "^16.9.5",
+    "@types/styled-components": "^5.0.1",
+    "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.0.0",
+    "cors": "^2.8.5",
+    "cross-env": "^6.0.3",
+    "electron-is-dev": "^1.1.0",
+    "express": "^4.17.1",
+    "moment": "^2.24.0",
+    "mysql": "^2.17.1",
+    "postinstall": "^0.7.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-scripts": "^3.3.0",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.88.1",
+    "sqlite3": "^4.1.1",
+    "styled-components": "^4.3.2",
+    "typescript": "^3.8.3",
+    "wait-on": "^3.3.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "server": "nodemon server.js",
+    "electron-start": "electron .",
+    "electron-dev": "concurrently \" cross-env BROWSER=none npm start\" \"wait-on http://localhost:3000 && electron .\" \"nodemon server.js\" ",
+    "preelectron-pack": "npm run build",
+    "postinstall": "electron-builder install-app-deps",
+    "electron-pack": "build — em.main=build/electron.js",
+    "package-win": "electron-builder build --win --x64"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "build": {
+    "appId": "com.mook",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  },
+  "devDependencies": {
+    "electron": "^7.0.0",
+    "electron-builder": "^21.2.0",
+    "nodemon": "^2.0.2"
+  }
+}
