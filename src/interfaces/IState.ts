@@ -4,7 +4,7 @@ export interface IUser {
   surname: string;
   email: string;
   img_url: string;
-  level: number;
+  level: any;
   created_at: Date;
   updated_at: Date
 }

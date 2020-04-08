@@ -1,6 +1,6 @@
 import React, { useState, useContext, FC } from 'react';
-import { Dropdown, Button, Form, Image, DropdownProps } from 'semantic-ui-react';
-import { StyledForm } from '../../forms/AddUserForm/StyledAddUserForm';
+import { Dropdown, Button, Form, Image, Rating } from 'semantic-ui-react';
+import { StyledForm, Title } from '../../forms/AddUserForm/StyledAddUserForm';
 import AvatarsModal from '../../modal/AvatarsWrapper';
 import { Users } from '../../../../context/UsersContext';
 import { WrapperContent } from './StyledWrapperDetail';
@@ -60,7 +60,7 @@ const UserDetails: FC = (): JSX.Element => {
           {/* <Content> */}
           <StyledForm>
             <Form>
-              {/* <div style={{ margin: '15px', display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+              <div style={{ margin: '15px', display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
                 <Title>Update : {selectedUser.surname} </Title>
                 <p>Vote for your favourite ? </p>
                 <span>
@@ -69,10 +69,10 @@ const UserDetails: FC = (): JSX.Element => {
                     defaultRating={0}
                     maxRating={5}
                     size='huge'
-                    onRate={(e, { rating, maxRating }) => setSelectedUser({ ...selectedUser, level: +rating })}
+                    onRate={(e, { rating, maxRating }) => setSelectedUser({ ...selectedUser, level: rating })}
                   />
                 </span>
-              </div> */}
+              </div>
               <Form.Field>
                 <label>First Name</label>
                 <input placeholder='First Name'
