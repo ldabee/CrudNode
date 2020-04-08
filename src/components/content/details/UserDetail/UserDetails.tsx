@@ -19,7 +19,7 @@ const UserDetails: FC = (): JSX.Element => {
   }
 
   const updateUser = (user: IUser) => {
-    axios.post(`http://localhost:3090/api/update/${user.id}`, { user }).then((result) => {
+    axios.post(`http://localhost:3090/api/update/${user.id}`, user).then((result) => {
       dispatch({ type: 'UPDATE_USER', payload: result.data.data })
     })
   }

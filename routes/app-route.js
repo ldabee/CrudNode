@@ -44,7 +44,7 @@ module.exports = function (app, connection) {
   app.post('/api/create', function (req, res) {
     connection.serialize(() => {
       connection.all('INSERT INTO users (name,surname,email,img_url,created_at,updated_at) VALUES (?,?,?,?,?,?)',
-        [req.body.user.name, req.body.user.surname, req.body.user.email, req.body.user.img_url, new Date(), new Date()],
+        [req.body.user.name, req.body.user.surname, req.body.user.email, req.body.user.img_url, moment(new Date()).format(), moment(new Date()).format()],
         function (err, result) {
           (err) ? res.send(err) : connection.all('SELECT * FROM users', function (err, data) {
             console.log(data);
@@ -66,20 +66,20 @@ module.exports = function (app, connection) {
           req.body.img_url,
           req.body.level,
           moment(new Date()).format(),
-          req.body.id
+          req.params.id
         ],
-        function (err, results) {
+        function (err, data) {
           if (!err) {
-            if (results) {
-              connection.all('SELECT * FROM users', function (err, results) {
+            if (data) {
+              connection.all('SELECT * FROM users', function (err, data) {
                 if (!err) {
-                  res.status(200).json({ results });
+                  res.status(200).json({ data });
                 } else {
                   res.status(403).json({ err });
                 }
               });
             } else {
-              res.status(400).json({ results });
+              res.status(400).json({ data });
             }
           } else {
             res.status(403).json({ err });

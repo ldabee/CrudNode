@@ -24,7 +24,7 @@ const NavPannel: FC = (): JSX.Element => {
     return (
         <React.Fragment>
             <Pannel>
-                {state.users.length && state.users.map((user: IUser, idx: number) => <UserItem key={idx} {...user} />)}
+                {state?.users?.map((user: IUser, idx: number) => <UserItem key={idx} {...user} />)}
             </Pannel>
         </React.Fragment>
     )
